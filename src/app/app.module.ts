@@ -11,6 +11,9 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { AddTodoComponent } from './components/pages/todo/add-todo/add-todo.component';
 import { from } from 'rxjs';
 import { AboutComponent } from './components/pages/about/about.component';
+import { PersonsComponent } from './components/pages/persons/persons.component';
+import { PersonComponent } from './components/pages/persons/person/person.component';
+import { PersonListComponent } from './components/pages/persons/person-list/person-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { AboutComponent } from './components/pages/about/about.component';
     TodoItemComponent,
     HeaderComponent,
     AddTodoComponent,
-    AboutComponent
+    AboutComponent,
+    PersonsComponent,
+    PersonComponent,
+    PersonListComponent
   ],
   imports: [
     BrowserModule,
