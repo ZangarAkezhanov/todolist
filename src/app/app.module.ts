@@ -18,6 +18,10 @@ import { PersonsComponent } from './components/pages/persons/persons.component';
 import { PersonComponent } from './components/pages/persons/person/person.component';
 import { PersonListComponent } from './components/pages/persons/person-list/person-list.component';
 import { PersonService } from './services/person.service';
+import { OrdersComponent } from './components/pages/orders/orders.component';
+import { OrderComponent } from './components/pages/orders/order/order.component';
+import { OrderItemsComponent } from './components/pages/orders/order-items/order-items.component';
+import { OrderService } from './services/order.service';
 
 
 @NgModule({
@@ -30,7 +34,10 @@ import { PersonService } from './services/person.service';
     AboutComponent,
     PersonsComponent,
     PersonComponent,
-    PersonListComponent
+    PersonListComponent,
+    OrdersComponent,
+    OrderComponent,
+    OrderItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,7 @@ import { PersonService } from './services/person.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [PersonService],
+  providers: [PersonService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -47,3 +47,17 @@ div.validation-error {
     font-size: 80%;
     color: #dc3545;
 }
+
+/* order */
+.jumbotron {
+    padding-top: 0;
+    background: #fff;
+}
+
+.form-control, .input-group-text {
+    border: 1px solid #0080ff;
+}
+
+table.table-hover tbody tr:hover {
+    cursor: pointer;
+}
