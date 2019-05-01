@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './components/pages/todo/todos/todos.component';
@@ -14,6 +17,8 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { PersonsComponent } from './components/pages/persons/persons.component';
 import { PersonComponent } from './components/pages/persons/person/person.component';
 import { PersonListComponent } from './components/pages/persons/person-list/person-list.component';
+import { PersonService } from './services/person.service';
+
 
 @NgModule({
   declarations: [
@@ -31,9 +36,11 @@ import { PersonListComponent } from './components/pages/persons/person-list/pers
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
