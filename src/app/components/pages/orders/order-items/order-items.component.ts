@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { OrderItem } from 'src/app/models/order-item.model';
+import { ItemService } from 'src/app/services/item.service';
+import { Item } from 'src/app/models/item.model';
 
 @Component({
   selector: 'app-order-items',
@@ -8,14 +10,19 @@ import { OrderItem } from 'src/app/models/order-item.model';
   styleUrls: ['./order-items.component.css']
 })
 export class OrderItemsComponent implements OnInit {
-  fromData: OrderItem;
+  formData: OrderItem;
+  itemList: Item[];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
-    public dialogRef: MatDialogRef<OrderItemsComponent>) { }
+    public dialogRef: MatDialogRef<OrderItemsComponent>,
+    private itemService: ItemService) { }
 
   ngOnInit() {
-    this.fromData = {
+    // this.itemService.getItemList().then(res => this.itemList = res as Item[]);
+
+    this.itemList  = this.itemService.getItemListFromArray();
+    this.formData = {
       orderItemID: null,
       orderID: this.data.orderID,
       itemID: 0,
@@ -26,4 +33,17 @@ export class OrderItemsComponent implements OnInit {
     };
   }
 
+  updatePrice(ctrl) {
+    if (ctrl.selectedIndex === 0) {
+      this.formData.price = 0;
+      this.formData.itemName = '';
+    } else {
+      this.formData.price = this.itemList[ctrl.selectedIndex - 1].price;
+      this.formData.itemName = this.itemList[ctrl.selectedIndex - 1].name;
+    }
+  }
+
+  updateTotal() {
+    this.formData.total = parseFloat((this.formData.quantity * this.formData.price).toFixed(2));
+  }
 }
