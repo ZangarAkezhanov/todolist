@@ -2,7 +2,28 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      
+      <table class="table table-hover">
+        <thead class="thead-light">
+            <th>#Order No.</th>
+            <th>Customer</th>
+            <th>P. Method</th>
+            <th>G total</th>
+            <th>
+              <a class="btn btn-outline-success" routerLink="/order"><i class="fa fa-plus-square"></i> Create New</a>
+            </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of orderList">
+            <td (click)="openForEdit(item.orderID)">{{item.orderNo}}</td>
+            <td>{{item.customer}}</td>
+            <td>{{item.pMethod}}</td>
+            <td>{{item.gTotal}}</td>
+            <td>
+                <a class="btn text-dander" (click)="onOrderDelete(item.orderID)"><i class="fa fa-trash fa-lg"></i></a></td>
+          </tr>
+        </tbody>
+        
+      </table>
     </div>
   </div>
 </div>
