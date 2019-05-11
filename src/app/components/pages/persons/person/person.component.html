@@ -1,13 +1,27 @@
 <form #form="ngForm" (ngSubmit)="onSubmit(form)" autocomplete="off">
     <input type="hidden" name="personID" #personID="ngModel" [(ngModel)]="service.formData.personID">
   <div class="form-group">
-    <label>FULL NAME</label>
-    <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" required class="form-control">
-    <div class="validation-error" *ngIf="fullName.invalid && fullName.touched">This field is required</div>
+    <label>FIRSTNAME</label>
+    <input name="firstname" #firstname="ngModel" [(ngModel)]="service.formData.firstname" required class="form-control">
+    <div class="validation-error" *ngIf="firstname.invalid && firstname.touched">This field is required</div>
+  </div>
+  <div class="form-group">
+        <label>LASTNAME</label>
+        <input name="lastname" #lastname="ngModel" [(ngModel)]="service.formData.lastname" required class="form-control">
+        <div class="validation-error" *ngIf="lastname.invalid && lastname.touched">This field is required</div>
+  </div>
+  <div class="form-group">
+        <label>PATRONYMIC</label>
+        <input name="patronymic" #patronymic="ngModel" [(ngModel)]="service.formData.patronymic" required class="form-control">
+        <div class="validation-error" *ngIf="patronymic.invalid && patronymic.touched">This field is required</div>
   </div>
   <div class="form-group">
       <label>POSITION</label>
       <input name="position" #position="ngModel" [(ngModel)]="service.formData.position" class="form-control">
+  </div>
+  <div class="form-group">
+        <label>POSITION</label>
+        <input name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control">
   </div>
   <div class="form-row">
       <div class="form-group col-md-6">
@@ -15,8 +29,8 @@
           <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formData.empCode" class="form-control">
       </div>
       <div class="form-group col-md-6">
-          <label>MOBILE</label>
-          <input name="mobile" #mobile="ngModel" [(ngModel)]="service.formData.mobile" class="form-control">
+          <label>phone</label>
+          <input name="phone" #phone="ngModel" [(ngModel)]="service.formData.phone" class="form-control">
       </div>
   </div>
   <div class="form-group">

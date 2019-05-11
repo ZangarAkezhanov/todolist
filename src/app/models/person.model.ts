@@ -1,7 +1,10 @@
 export class Person {
     personID: number;
-    fullName: string;
     empCode: string;
-    mobile: string;
+    firstname: string;
+    lastname: string;
+    patronymic: string;
+    email: string;
+    phone: string;
     position: string;
 }

@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  public name = 'Zangar';
+  public myId = 'testId';
+  public isDisabled = false;
   constructor() { }
-
+  logMessage(value) {
+    console.log(value);
+  }
   ngOnInit() {
   }
 

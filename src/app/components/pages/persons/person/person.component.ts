@@ -24,9 +24,12 @@ export class PersonComponent implements OnInit {
       }
       this.service.formData = {
         personID: null,
-        fullName: '',
+        firstname: '',
+        lastname: '',
+        patronymic: '',
         empCode: '',
-        mobile: '',
+        email: '',
+        phone: '',
         position: '',
       };
   }

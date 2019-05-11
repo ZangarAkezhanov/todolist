@@ -1,3 +1,19 @@
 <p>
   about works!
 </p>
+
+<h2>My name is {{name}}</h2>
+<input type="text" value="name">
+<input [id]="myId1" type="text" value="undefined">
+<input [id]="myId" type="text" value="testId">
+<input [disabled]="isDisabled" id="myId" type="text" value="myId">
+
+<div class="container">
+    <div class="row">
+        <input #myInput type="text">
+        <button (click)="logMessage(myInput.value)">Log</button>
+      </div>
+      <div class="row">   
+      <input type="text" [(ngModel)]="name">
+      </div>
+</div>

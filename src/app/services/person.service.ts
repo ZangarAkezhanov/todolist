@@ -9,32 +9,26 @@ export class PersonService {
 
   formData: Person;
   list: Person[];
-  readonly rootURL = 'http://localhost:9090/api';
+  readonly rootURL = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) { }
 
   postPerson(formData: Person) {
     console.log('ok, then need post back server');
     this.list.push(formData);
-     return this.http.post(this.rootURL + '/person', formData);
+     return this.http.post(this.rootURL + '/persons', formData);
   }
 
   updatePerson(formData: Person) {
-    return this.http.put(this.rootURL + '/person/' + formData.personID, formData);
+    return this.http.put(this.rootURL + '/persons/' + formData.personID, formData);
   }
 
   deletePerson(id: number) {
-    return this.http.delete(this.rootURL + '/person/' + id);
+    return this.http.delete(this.rootURL + '/persons/' + id);
   }
 
   refreshList() {
-    // this.http.get(this.rootURL + '/person')
-    //   .toPromise().then(res => this.list = res as Person[]);
-    this.list = [{
-      personID: 1,
-      fullName: 'Akezhanov Zangar',
-      empCode: '001',
-      mobile: '87077086838',
-      position: 'developer' }];
+     this.http.get(this.rootURL + '/persons')
+       .toPromise().then(res => this.list = res as Person[]);
   }
 }
